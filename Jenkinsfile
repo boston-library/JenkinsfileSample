@@ -17,6 +17,10 @@ pipeline {
         stage('GetCode') {
             steps {
                 script {
+                    echo "branchName is ${branchName}"
+                    echo "gitHttpURL is ${gitHttpURL}"
+                    echo "credentialsId is ${credentialsId}"
+                    
                     mytools.GetCode("git", branchName, gitHttpURL, credentialsId)
                 }
 
