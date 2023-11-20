@@ -37,9 +37,13 @@ pipeline {
             }
         }
 
-      stage('Testing') {
-        echo "Testing Stage..."
-      }
-      
+        stage('Testing') {
+            steps {
+                script {
+                    echo "Testing Stage..."
+                }
+            }
+        }
+
     }
 }
