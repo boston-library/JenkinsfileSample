@@ -1,5 +1,5 @@
 #!groovy
-@Library(bpllib@Nov17) _
+@Library("bpllib@Nov17") _
 
 def mytools = new bpllib.devops.mytools()
 
