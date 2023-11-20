@@ -1,3 +1,4 @@
+#!groovy
 pipeline {
     agent any
 
@@ -34,7 +35,11 @@ pipeline {
                         '''
                 }
             }
-
         }
+
+      stage('Testing') {
+        echo "Testing Stage..."
+      }
+      
     }
 }
