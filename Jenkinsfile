@@ -1,7 +1,7 @@
 #!groovy
 @Library("bpllib@Nov17") _
 
-def mytools = new bpl.devops.mytools()
+def mytools = new org.bpl.devops.mytools()
 
 String branchName = "${env.branchName}"
 String gitHttpURL = "${env.gitHttpURL}"

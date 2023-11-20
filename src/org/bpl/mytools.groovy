@@ -1,4 +1,4 @@
-package bpl.devops
+package org.bpl.devops
 
 def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 	if (srcType == "git"){
