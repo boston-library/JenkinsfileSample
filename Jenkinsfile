@@ -45,5 +45,13 @@ pipeline {
             }
         }
 
+        stage('Deploying') {
+            steps {
+                script {
+                    echo "Deeploy Stage..."
+                }
+            }
+        }
+
     }
 }
