@@ -7,10 +7,6 @@ String branchName = "${env.branchName}"
 String gitHttpURL = "${env.gitHttpURL}"
 String credentialsId = "${env.credentialsId}"
 
-// String branchName = "Nov17"
-// String gitHttpURL = "https://github.com/boston-library/JenkinsfileSample.git"
-// String credentialsId = "${env.credentialsId}"
-
 pipeline {
     agent any
     options {

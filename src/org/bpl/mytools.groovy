@@ -6,8 +6,8 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 		checkout([
 			$class: 'GitSCM', branches: [[name: "${branchName}"]], 
 			extensions: [],
-			// userRemoteConfigs: [[credentialsId: "{$credentialsId}", url: "${gitHttpURL}"]]
-			userRemoteConfigs: [[url: "${gitHttpURL}"]]
+			userRemoteConfigs: [[credentialsId: "{$credentialsId}", url: "${gitHttpURL}"]]
+			// userRemoteConfigs: [[url: "${gitHttpURL}"]]
 			])
 	}
 }
