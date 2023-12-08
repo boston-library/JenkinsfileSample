@@ -7,7 +7,6 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 			$class: 'GitSCM', branches: [[name: "${branchName}"]], 
 			extensions: [],
 			userRemoteConfigs: [[credentialsId: "{$credentialsId}", url: "${gitHttpURL}"]]
-			// userRemoteConfigs: [[url: "${gitHttpURL}"]]
 			])
 	}
 }
