@@ -61,6 +61,15 @@ pipeline {
             // }
         }
 
+        stage('Install New Ruby') {
+            steps {
+                script {
+                    echo "Install New Ruby..."
+                    mytool.InstallNewRuby()
+                }
+            }
+        }
+
         stage('Testing') {
             steps {
                 script {
