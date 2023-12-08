@@ -26,6 +26,7 @@ pipeline {
                     echo "gitHttpURL is ${gitHttpURL}"
                     echo "credentialsId is ${credentialsId}"
                     
+                    echo "mytools is ${mytools}"
                     // mytools.GetCode("git", branchName, gitHttpURL)
                     mytools.GetCode("git", branchName, gitHttpURL, credentialsId)
                 }
