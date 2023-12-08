@@ -1,14 +1,15 @@
 #!groovy
-@Library("bpllib@Nov17") _
+@Library("bpllib") _
+// @Library("bpllib@Nov17") _
 
 def mytools = new org.bpl.mytools()
 
-// String branchName = "${env.branchName}"
-// String gitHttpURL = "${env.gitHttpURL}"
-// String credentialsId = "${env.credentialsId}"
+String branchName = "${env.branchName}"
+String gitHttpURL = "${env.gitHttpURL}"
+String credentialsId = "${env.credentialsId}"
 
-String branchName = "Nov17"
-String gitHttpURL = "https://github.com/boston-library/JenkinsfileSample.git"
+// String branchName = "Nov17"
+// String gitHttpURL = "https://github.com/boston-library/JenkinsfileSample.git"
 // String credentialsId = "${env.credentialsId}"
 
 pipeline {
@@ -23,10 +24,10 @@ pipeline {
                 script {
                     echo "branchName is ${branchName}"
                     echo "gitHttpURL is ${gitHttpURL}"
-                    // echo "credentialsId is ${credentialsId}"
+                    echo "credentialsId is ${credentialsId}"
                     
-                    mytools.GetCode("git", branchName, gitHttpURL)
-                    // mytools.GetCode("git", branchName, gitHttpURL, credentialsId)
+                    // mytools.GetCode("git", branchName, gitHttpURL)
+                    mytools.GetCode("git", branchName, gitHttpURL, credentialsId)
                 }
 
             }
