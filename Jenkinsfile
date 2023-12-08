@@ -2,7 +2,7 @@
 @Library("bpllib") _
 // @Library("bpllib@Nov17") _
 
-def mytools = new org.bpl.mytools()
+def mytool = new org.bpl.mytools()
 
 String branchName = "${env.branchName}"
 String gitHttpURL = "${env.gitHttpURL}"
@@ -26,9 +26,9 @@ pipeline {
                     echo "gitHttpURL is ${gitHttpURL}"
                     echo "credentialsId is ${credentialsId}"
                     
-                    echo "mytools is ${mytools}"
-                    // mytools.GetCode("git", branchName, gitHttpURL)
-                    mytools.GetCode("git", branchName, gitHttpURL, credentialsId)
+                    echo "mytool is ${mytool}"
+                    // mytool.GetCode("git", branchName, gitHttpURL, credentialsId)
+                    mytool.GetCode("git", branchName, gitHttpURL, credentialsId)
                 }
 
             }
