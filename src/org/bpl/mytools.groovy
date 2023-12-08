@@ -38,3 +38,6 @@ def InstallNewRuby(){
         
         '''
 }
+def RunRSpec(){
+	println("Running Spec Tests ")
+}
