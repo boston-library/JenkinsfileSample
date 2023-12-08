@@ -5,7 +5,8 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 		println("Downloading code from branch: ${branchName}")
 		checkout([$class: GitSCM, branches: [[name: "${branchName}"]], 
 			extensions: [],
-			userRemoteConfigs: [[credentialsId: "{$credentialsId}", url: "${gitHttpURL}"]]
+			// userRemoteConfigs: [[credentialsId: "{$credentialsId}", url: "${gitHttpURL}"]]
+			userRemoteConfigs: [[url: "${gitHttpURL}"]]
 			])
 	}
 }
