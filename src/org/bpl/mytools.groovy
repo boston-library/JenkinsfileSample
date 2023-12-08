@@ -46,6 +46,6 @@ def RunRSpec(){
         pwd
         whoami
         ls -alt 
-        rspec	
+        bin/rails exec rspec	
 	'''
 }
