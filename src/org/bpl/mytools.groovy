@@ -40,4 +40,12 @@ def InstallNewRuby(){
 }
 def RunRSpec(){
 	println("Running Spec Tests ")
+	sh '''
+	    #!/bin/bash -l
+        set -x
+        pwd
+        whoami
+        ls -alt 
+        rspec	
+	'''
 }
