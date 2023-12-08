@@ -14,27 +14,27 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 def InstallNewRuby(){
 	println("Install new Ruby if there is any")
 
-    // sh '''
-    //     #!/bin/bash -l
-    //     set -x
-    //     pwd
-    //     whoami
-    //     ls -alt 
+    sh '''
+        #!/bin/bash -l
+        set -x
+        pwd
+        whoami
+        ls -alt 
         
-    //     EXPECTED_RUBY=`cat .ruby-version`
-    //     echo "EXPECTED_RUBY is ${EXPECTED_RUBY}"
+        EXPECTED_RUBY=`cat .ruby-version`
+        echo "EXPECTED_RUBY is ${EXPECTED_RUBY}"
         
-    //     ##if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
-    //     ##    source /var/lib/jenkins/.rvm/bin/rvm
-    //     ##else 
-    //     ##    exit
-    //     ##fi    
+        ##if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+        ##    source /var/lib/jenkins/.rvm/bin/rvm
+        ##else 
+        ##    exit
+        ##fi    
         
-    //     ##rvm use ${EXPECTED_RUBY} --default
-    //     ##bundle install
+        ##rvm use ${EXPECTED_RUBY} --default
+        ##bundle install
         
-    //     ##whereis ruby
-    //     ##ruby --version                    
+        ##whereis ruby
+        ##ruby --version                    
         
-    //     '''
+        '''
 }
