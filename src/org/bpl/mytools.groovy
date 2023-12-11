@@ -15,7 +15,7 @@ def InstallNewRuby(rubyVersion){
    println("Installing new ruby version by being called: ${rubyVersion}")
    withEnv(["RUBYVERSION=${rubyVersion}"]){
       sh '''
-           #!/usr/bin/env bash
+           #!/usr/bin/env bash --login
            set -x
            pwd
            whoami
