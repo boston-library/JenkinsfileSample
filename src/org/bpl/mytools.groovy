@@ -15,36 +15,36 @@ def InstallNewRuby(rubyVersion){
    println("Installing new ruby version by being called: ${rubyVersion}")
    withEnv(["RUBYVERSION=${rubyVersion}"]){
       sh '''
-           #!/usr/bin/env bash --login
-           set -x
-           pwd
-           whoami
-           ls -alt
-           ## #!/bin/bash --login 
-           
-           ## EXPECTED_RUBY=`cat .ruby-version`
-           echo "Inside shell script, install New Ruby... by calling library"
-           echo "ruby_version is ${RUBYVERSION}"
+      #!/bin/bash --login
+      set -x
+      pwd
+      whoami
+      ls -alt
+      ##  
 
-           echo "Call assigned ruby-version" 
+      ## EXPECTED_RUBY=`cat .ruby-version`
+      echo "Inside shell script, install New Ruby... by calling library"
+      echo "ruby_version is ${RUBYVERSION}"
 
-           if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
-              source /var/lib/jenkins/.rvm/bin/rvm
-           else 
-              exit
-           fi    
-           
-           echo "after sourcing rvm..."
-           /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}"
-           /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm get stable"
-           /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default"
+      echo "Call assigned ruby-version" 
 
-           # # $HOME/.rvm/bin/rvm reinstall ${RUBYVERSION}
-           # # $HOME/.rvm/bin/rvm use ${RUBYVERSION} --default
-           bundle install
-           
-           whereis ruby
-           ruby --version                    
+      if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+        source /var/lib/jenkins/.rvm/bin/rvm
+      else 
+        exit
+      fi    
+
+      echo "after sourcing rvm..."
+      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}"
+      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm get stable"
+      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default"
+
+      # # $HOME/.rvm/bin/rvm reinstall ${RUBYVERSION}
+      # # $HOME/.rvm/bin/rvm use ${RUBYVERSION} --default
+      bundle install
+
+      whereis ruby
+      ruby --version                    
            
       '''.stripIndent()
    }
