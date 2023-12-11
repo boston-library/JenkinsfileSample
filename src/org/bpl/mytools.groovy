@@ -23,7 +23,7 @@ def InstallNewRuby(rubyVersion){
         ls -alt 
         
         ## EXPECTED_RUBY=`cat .ruby-version`
-        echo "Install New Ruby... by calling library"
+        echo "Inside shell script, install New Ruby... by calling library"
         echo "ruby_version is ${rubyVersion}"
 
         echo "Call assigned ruby-version" 
