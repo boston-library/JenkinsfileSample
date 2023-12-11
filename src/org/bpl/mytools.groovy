@@ -12,35 +12,35 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 }
 
 def InstallNewRuby(rubyVersion){
-	println("Install new Ruby if there is any")
    println("Installing new ruby version by being called: ${rubyVersion}")
+   withEnv(["RUBYVERSION=${rubyVersion}"]){
+      sh '''
+           #!/bin/bash -l
+           set -x
+           pwd
+           whoami
+           ls -alt 
+           
+           ## EXPECTED_RUBY=`cat .ruby-version`
+           echo "Inside shell script, install New Ruby... by calling library"
+           echo "ruby_version is ${RUBYVERSION}"
 
-   sh '''
-        #!/bin/bash -l
-        set -x
-        pwd
-        whoami
-        ls -alt 
-        
-        ## EXPECTED_RUBY=`cat .ruby-version`
-        echo "Inside shell script, install New Ruby... by calling library"
-        echo "ruby_version is ${rubyVersion}"
+           echo "Call assigned ruby-version" 
 
-        echo "Call assigned ruby-version" 
-
-        if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
-           source /var/lib/jenkins/.rvm/bin/rvm
-        else 
-           exit
-        fi    
-        
-        rvm use ${rubyVersion} --default
-        bundle install
-        
-        whereis ruby
-        ruby --version                    
-        
-   '''
+           if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+              source /var/lib/jenkins/.rvm/bin/rvm
+           else 
+              exit
+           fi    
+           
+           rvm use ${RUBYVERSION} --default
+           bundle install
+           
+           whereis ruby
+           ruby --version                    
+           
+      '''.stripIndent()
+   }
 }
 
 def RunRSpec(){
