@@ -6,6 +6,7 @@ def mytool = new org.bpl.mytools()
 String branchName = "${env.branchName}"
 String gitHttpURL = "${env.gitHttpURL}"
 String credentialsId = "${env.credentialsId}"
+String ruby_version = "2.7.8"
 
 pipeline {
     agent any
@@ -32,7 +33,7 @@ pipeline {
             steps {
                 script {
                     echo "Install New Ruby..."
-                    String ruby_version = "2.7.8"
+                    // String ruby_version = "2.7.8"
                     mytool.InstallNewRuby(ruby_version)
                 }
             }
