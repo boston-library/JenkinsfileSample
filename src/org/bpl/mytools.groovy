@@ -15,7 +15,7 @@ def InstallNewRuby(rubyVersion){
    println("Installing new ruby version by being called: ${rubyVersion}")
    withEnv(["RUBYVERSION=${rubyVersion}"]){
       sh '''
-           #!/bin/bash -l
+           #!/bin/bash --login
            set -x
            pwd
            whoami
@@ -33,8 +33,12 @@ def InstallNewRuby(rubyVersion){
               exit
            fi    
            
-           /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
-           /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
+          
+           ## /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
+           ## /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
+
+           $HOME/.rvm/bin/rvm install ${RUBYVERSION}
+           $HOME/.rvm/bin/rvm use ${RUBYVERSION} --default
            bundle install
            
            whereis ruby
