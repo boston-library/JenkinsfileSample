@@ -32,7 +32,7 @@ pipeline {
         stage('Install New Ruby') {
             steps {
                 script {
-                    echo "Install New Ruby..."
+                    echo "Install New Ruby...${rubyVersion}..."
                     // String ruby_version = "2.7.8"
                     mytool.InstallNewRuby(rubyVersion)
                 }

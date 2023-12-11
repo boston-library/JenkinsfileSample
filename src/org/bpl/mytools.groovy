@@ -13,8 +13,9 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 
 def InstallNewRuby(rubyVersion){
 	println("Install new Ruby if there is any")
+   println("Installing new ruby version by being called: ${rubyVersion}")
 
-    sh '''
+   sh '''
         #!/bin/bash -l
         set -x
         pwd
@@ -39,8 +40,9 @@ def InstallNewRuby(rubyVersion){
         whereis ruby
         ruby --version                    
         
-        '''
+   '''
 }
+
 def RunRSpec(){
 	println("Running Spec Tests ")
 	sh '''
