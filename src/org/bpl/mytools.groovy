@@ -34,8 +34,8 @@ def InstallNewRuby(rubyVersion){
            fi    
            
            echo "after sourcing rvm..."
-           ## /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
-           ## /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
+           ### /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
+           ### /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
 
            $HOME/.rvm/bin/rvm reinstall ${RUBYVERSION}
            $HOME/.rvm/bin/rvm use ${RUBYVERSION} --default
