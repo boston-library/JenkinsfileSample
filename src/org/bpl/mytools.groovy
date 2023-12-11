@@ -46,6 +46,19 @@ def RunRSpec(){
         pwd
         whoami
         ls -alt 
+        
+        EXPECTED_RUBY=`cat .ruby-version`
+        echo "EXPECTED_RUBY is ${EXPECTED_RUBY}"
+        
+        if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+           source /var/lib/jenkins/.rvm/bin/rvm
+        else 
+           exit
+        fi    
+        
+        rvm use ${EXPECTED_RUBY} --default
+        bundle install
+        
         bin/rails exec rspec	
 	'''
 }
