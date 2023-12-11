@@ -59,6 +59,7 @@ def RunRSpec(){
         rvm use ${EXPECTED_RUBY} --default
         bundle install
         
-        bin/rails exec rspec	
+        ## bin/rails exec rspec
+        rspec	
 	'''
 }
