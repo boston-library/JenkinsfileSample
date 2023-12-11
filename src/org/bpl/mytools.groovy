@@ -15,11 +15,12 @@ def InstallNewRuby(rubyVersion){
    println("Installing new ruby version by being called: ${rubyVersion}")
    withEnv(["RUBYVERSION=${rubyVersion}"]){
       sh '''
-           #!/bin/bash --login
+           #!/usr/bin/env bash
            set -x
            pwd
            whoami
-           ls -alt 
+           ls -alt
+           ## #!/bin/bash --login 
            
            ## EXPECTED_RUBY=`cat .ruby-version`
            echo "Inside shell script, install New Ruby... by calling library"
