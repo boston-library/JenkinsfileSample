@@ -33,6 +33,7 @@ def InstallNewRuby(rubyVersion){
               exit
            fi    
            
+           rvm install ${RUBYVERSION}
            rvm use ${RUBYVERSION} --default
            bundle install
            
