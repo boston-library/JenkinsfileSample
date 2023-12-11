@@ -11,7 +11,7 @@ def GetCode(srcType,branchName,gitHttpURL,credentialsId){
 	}
 }
 
-def InstallNewRuby(myExpectedRuby){
+def InstallNewRuby(ruby_version){
 	println("Install new Ruby if there is any")
 
     sh '''
@@ -23,7 +23,7 @@ def InstallNewRuby(myExpectedRuby){
         
         ## EXPECTED_RUBY=`cat .ruby-version`
         echo "Install New Ruby... by calling library"
-        echo "myExpectedRuby is ${myExpectedRuby}"
+        echo "ruby_version is ${ruby_version}"
 
         echo "Call assigned ruby-version" 
 
@@ -33,7 +33,7 @@ def InstallNewRuby(myExpectedRuby){
            exit
         fi    
         
-        rvm use ${myExpectedRuby} --default
+        rvm use ${ruby_version} --default
         bundle install
         
         whereis ruby
