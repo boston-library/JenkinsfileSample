@@ -32,7 +32,8 @@ pipeline {
             steps {
                 script {
                     echo "Install New Ruby..."
-                    mytool.InstallNewRuby()
+                    ruby_version = "2.7.8"
+                    mytool.InstallNewRuby(ruby_version)
                 }
             }
         }
