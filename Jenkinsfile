@@ -32,6 +32,15 @@ pipeline {
         stage('Install New Ruby') {
             steps {
                 script {
+                    sh '''
+                      #!/bin/bash --login
+                      set -x
+                      echo "Here is Daniel Miao"
+                      pwd
+                      whoami
+                      ls -alt
+                    '''    
+
                     echo "Install New Ruby...${rubyVersion}..."
                     // String ruby_version = "2.7.8"
                     mytool.InstallNewRuby(rubyVersion)
