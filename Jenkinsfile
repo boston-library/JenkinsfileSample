@@ -39,8 +39,9 @@ pipeline {
                       pwd
                       whoami
                       ls -alt
-                      rubyVersion=`cat .ruby-version`
-                      echo "Prepared rubyVersion is ${rubyVersion}, can it be retrieved by outside library??? "
+                      rubyVersionOrig=`cat .ruby-version`
+                      rubyVersion=${rubyVersionOrig:5:5}
+                      echo "Prepared rubyVersion is ${rubyVersionOrig} and ${rubyVersion}, can it be retrieved by outside library??? "
                     '''    
 
                     echo "Install New Ruby...${rubyVersion}..."
