@@ -6,7 +6,7 @@ def mytool = new org.bpl.mytools()
 String branchName = "${env.branchName}"
 String gitHttpURL = "${env.gitHttpURL}"
 String credentialsId = "${env.credentialsId}"
-String rubyVersion = "2.7.8"
+// String rubyVersion = "2.7.8"
 
 pipeline {
     agent any
@@ -39,6 +39,8 @@ pipeline {
                       pwd
                       whoami
                       ls -alt
+                      rubyVersion=`cat .ruby-version`
+                      echo "Prepared rubyVersion is ${rubyVersion}, can it be retrieved by outside library??? "
                     '''    
 
                     echo "Install New Ruby...${rubyVersion}..."
