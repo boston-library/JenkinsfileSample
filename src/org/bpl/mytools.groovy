@@ -58,13 +58,12 @@ def RunBundleInstall(){
   '''
 }
 
-
-def RunDBpreparation(RAILS_ENV){
+def RunDBpreparation(railsEnv){
   println("RUN DB prepare and migrate ")
   sh '''
     #!/bin/bash -l
    
-    echo "RAILS_ENV from Jenkinsfile is ${RAILS_ENV}"
+    echo "RAILS_ENV from Jenkinsfile is ${railsEnv}"
     echo "In  shared library,  db:prepare and db:migrate " 
     if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
        source /var/lib/jenkins/.rvm/bin/rvm
@@ -72,8 +71,8 @@ def RunDBpreparation(RAILS_ENV){
        exit
     fi    
     
-    RAILS_ENV=${RAILS_ENV} bundle exec rails db:prepare
-    RAILS_ENV=${RAILS_ENV} bundle exec rails db:migrate
+    RAILS_ENV=${railsEnv} bundle exec rails db:prepare
+    RAILS_ENV=${railsEnv} bundle exec rails db:migrate
 
   '''
 }
