@@ -45,14 +45,15 @@ pipeline {
                 script {
                     echo "DB:migrate Phase..."
                     echo "Staging_name is ${PHASE_NAME}\n"
-
+                    
+                    String railsEnv = ""
                     switch("${PHASE_NAME}"){
                         case "staging": 
-                            String railsEnv = "staging"
+                            railsEnv = "staging"
                         case "QC":
-                            String railsEnv = "QC"
+                            railsEnv = "QC"
                         default: 
-                            String railsEnv = ""
+                            railsEnv = "Production"
                     }
 
                     // if ( "${PHASE_NAME}" == "staging" ) { 
