@@ -46,7 +46,7 @@ pipeline {
                     echo "DB:migrate Phase..."
                     echo "Staging_name is ${PHASE_NAME}\n"
 
-                    switch(${PHASE_NAME}){
+                    switch("${PHASE_NAME}"){
                         case "staging": 
                             String railsEnv = "staging"
                         case "QC":
