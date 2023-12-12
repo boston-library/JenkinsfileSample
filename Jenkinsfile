@@ -43,7 +43,7 @@ pipeline {
                     //   export rubyVersion=${rubyVersionOrig:5:5}
                     //   echo "Prepared rubyVersion is ${rubyVersionOrig} and ${rubyVersion}, can it be retrieved by outside library??? "
                     // '''    
-                    rubyVersion = sh(returnStdout: true, script: '`cat .ruby-version`').trim()
+                    rubyVersion = sh(returnStdout: true, script: 'echo `cat .ruby-version`').trim()
                     echo "Install New Ruby...${rubyVersion}..."
                     String rubyVersion = "${rubyVersion}"
                     mytool.InstallNewRuby(rubyVersion)
