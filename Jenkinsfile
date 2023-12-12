@@ -51,10 +51,13 @@ pipeline {
                     switch("${PHASE_NAME}"){
                         case "staging": 
                             railsEnv = "staging"
+                            break;
                         case "QC":
                             railsEnv = "QC"
+                            break;
                         default: 
                             railsEnv = "Production"
+                            break;
                     }
 
                     // if ( "${PHASE_NAME}" == "staging" ) { 
