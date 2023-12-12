@@ -45,7 +45,7 @@ pipeline {
                 script {
                     echo "DB:migrate Stage..."
                     // String railsEnv = "staging"
-                    echo "Staging_name is ${STAGE_NAME}"
+                    echo "Staging_name is ${STAGE_NAME}\n"
                     String railsEnv = ""
                     echo "RAILS_ENV in Jenkinsfile is ${railsEnv}"
                     mytool.RunDBpreparation(railsEnv)
