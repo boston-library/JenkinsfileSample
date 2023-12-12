@@ -45,12 +45,13 @@ pipeline {
                 script {
                     echo "DB:migrate Stage..."
                     String RAILS_ENV = "staging"
+                    echo "RAILS_ENV in Jenkinsfile is ${RAILS_ENV}"
                     mytool.RunDBpreparation(RAILS_ENV)
                 }
             }
         }
 
-
+RunDBpreparation
         stage('Bundle Install') {
             steps {
                 script {
