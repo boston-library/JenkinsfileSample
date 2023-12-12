@@ -16,17 +16,9 @@ def InstallNewRuby(rubyVersion){
    withEnv(["RUBYVERSION=${rubyVersion}"]){
       sh '''
       #!/bin/bash --login
-      set -x
-      pwd
-      whoami
-      ls -alt
-      ##  
-
+ 
       ## EXPECTED_RUBY=`cat .ruby-version`
-      echo "Inside shell script, install New Ruby... by calling library"
       echo "ruby_version is ${RUBYVERSION}"
-
-      echo "Call assigned ruby-version" 
 
       if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
         source /var/lib/jenkins/.rvm/bin/rvm
@@ -40,12 +32,30 @@ def InstallNewRuby(rubyVersion){
       /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
 
       # # bundle install
-
       whereis ruby
       ruby --version                    
            
       '''.stripIndent()
    }
+}
+
+
+def RunBundleInstall(){
+  println("RUN bundle install ")
+  sh '''
+    #!/bin/bash -l
+   
+    echo "In  shared library,  bundle install" 
+    if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+       source /var/lib/jenkins/.rvm/bin/rvm
+    else 
+       exit
+    fi    
+    
+    ## rvm use ${EXPECTED_RUBY} --default
+    bundle install
+
+  '''
 }
 
 def RunRSpec(){

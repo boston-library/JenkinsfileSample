@@ -40,6 +40,15 @@ pipeline {
             }
         }
 
+        stage('Bundle Install') {
+            steps {
+                script {
+                    echo "Bundle Install Stage..."
+                    mytool.RunBundleInstall()
+                }
+            }
+        }
+
         stage('Testing') {
             steps {
                 script {
