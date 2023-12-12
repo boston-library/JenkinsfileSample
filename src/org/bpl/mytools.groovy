@@ -64,6 +64,7 @@ def RunDBpreparation(RAILS_ENV){
   sh '''
     #!/bin/bash -l
    
+    echo "RAILS_ENV from Jenkinsfile is ${RAILS_ENV}"
     echo "In  shared library,  db:prepare and db:migrate " 
     if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
        source /var/lib/jenkins/.rvm/bin/rvm
