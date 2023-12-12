@@ -53,7 +53,7 @@ pipeline {
 
                     }
                     echo "RAILS_ENV in Jenkinsfile is ${railsEnv}"
-                    mytool.RunDBpreparation(railsEnv)
+                    // mytool.RunDBpreparation(railsEnv)
                 }
             }
         }
