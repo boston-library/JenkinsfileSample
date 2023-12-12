@@ -32,18 +32,18 @@ pipeline {
         stage('Install New Ruby') {
             steps {
                 script {
-                    sh '''
-                      #!/bin/bash --login
-                      set -x
-                      echo "Here is Daniel Miao"
-                      pwd
-                      whoami
-                      ls -alt
-                      rubyVersionOrig=`cat .ruby-version`
-                      rubyVersion=${rubyVersionOrig:5:5}
-                      echo "Prepared rubyVersion is ${rubyVersionOrig} and ${rubyVersion}, can it be retrieved by outside library??? "
-                    '''    
-
+                    // sh '''
+                    //   #!/bin/bash --login
+                    //   set -x
+                    //   echo "Here is Daniel Miao"
+                    //   pwd
+                    //   whoami
+                    //   ls -alt
+                    //   rubyVersionOrig=`cat .ruby-version`
+                    //   export rubyVersion=${rubyVersionOrig:5:5}
+                    //   echo "Prepared rubyVersion is ${rubyVersionOrig} and ${rubyVersion}, can it be retrieved by outside library??? "
+                    // '''    
+                    rubyVersion = sh(returnStdout: true, script: '`cat .ruby-version`').trim()
                     echo "Install New Ruby...${rubyVersion}..."
                     String rubyVersion = "${rubyVersion}"
                     mytool.InstallNewRuby(rubyVersion)
