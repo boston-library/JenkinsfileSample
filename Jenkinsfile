@@ -51,7 +51,6 @@ pipeline {
             }
         }
 
-RunDBpreparation
         stage('Bundle Install') {
             steps {
                 script {
