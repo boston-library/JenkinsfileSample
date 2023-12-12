@@ -45,7 +45,7 @@ pipeline {
                 script {
                     echo "DB:migrate Phase..."
                     echo "Staging_name is ${PHASE_NAME}\n"
-                    if (${PHASE_NAME} == "staging" ) { 
+                    if ( ${PHASE_NAME} == "staging" ) { 
                         // String railsEnv = "staging"
                         String railsEnv = "staging"
                     } else {
