@@ -35,13 +35,11 @@ def InstallNewRuby(rubyVersion){
       fi    
 
       echo "after sourcing rvm..."
-      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}"
-      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm get stable"
-      /bin/bash -l -c "/var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default"
+      /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
+      /var/lib/jenkins/.rvm/bin/rvm get stable
+      /var/lib/jenkins/.rvm/bin/rvm use ${RUBYVERSION} --default
 
-      # # $HOME/.rvm/bin/rvm reinstall ${RUBYVERSION}
-      # # $HOME/.rvm/bin/rvm use ${RUBYVERSION} --default
-      bundle install
+      # # bundle install
 
       whereis ruby
       ruby --version                    
