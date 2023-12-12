@@ -55,21 +55,17 @@ pipeline {
                         case "QC":
                             railsEnv = "QC"
                             break;
-                        default: 
+                        case "Production":
                             railsEnv = "Production"
+                            break;
+                        default: 
+                            railsEnv = ""
                             break;
                     }
 
-                    // if ( "${PHASE_NAME}" == "staging" ) { 
-                    //     // String railsEnv = "staging"
-                    //     String railsEnv = "staging"
-                    // } else {
-                    //     String railsEnv = "No staging"     
-
-                    // }
                     echo "Daniel Miao #2"
                     echo "RAILS_ENV in Jenkinsfile is ${railsEnv}"
-                    // mytool.RunDBpreparation(railsEnv)
+                    mytool.RunDBpreparation(railsEnv)
                 }
             }
         }
