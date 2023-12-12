@@ -44,9 +44,14 @@ pipeline {
             steps {
                 script {
                     echo "DB:migrate Phase..."
-                    // String railsEnv = "staging"
                     echo "Staging_name is ${PHASE_NAME}\n"
-                    String railsEnv = ""
+                    if (${PHASE_NAME} == "staging" ) { 
+                        // String railsEnv = "staging"
+                        String railsEnv = "staging"
+                    } else {
+                        String railsEnv = ""     
+
+                    }
                     echo "RAILS_ENV in Jenkinsfile is ${railsEnv}"
                     mytool.RunDBpreparation(railsEnv)
                 }
