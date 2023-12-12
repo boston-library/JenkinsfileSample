@@ -40,6 +40,17 @@ pipeline {
             }
         }
 
+        stage('DB migrate') {
+            steps {
+                script {
+                    echo "DB:migrate Stage..."
+                    String RAILS_ENV = "staging"
+                    mytool.RunDBpreparation(RAILS_ENV)
+                }
+            }
+        }
+
+
         stage('Bundle Install') {
             steps {
                 script {

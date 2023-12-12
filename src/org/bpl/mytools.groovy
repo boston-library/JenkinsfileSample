@@ -58,6 +58,26 @@ def RunBundleInstall(){
   '''
 }
 
+
+def RunDBpreparation(RAILS_ENV){
+  println("RUN DB prepare and migrate ")
+  sh '''
+    #!/bin/bash -l
+   
+    echo "In  shared library,  db:prepare and db:migrate " 
+    if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+       source /var/lib/jenkins/.rvm/bin/rvm
+    else 
+       exit
+    fi    
+    
+    RAILS_ENV=${RAILS_ENV} bundle exec rails db:prepare
+    RAILS_ENV=${RAILS_ENV} bundle exec rails db:migrate
+
+  '''
+}
+
+
 def RunRSpec(){
 	println("Running Spec Tests ")
 	sh '''
