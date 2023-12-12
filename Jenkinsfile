@@ -45,7 +45,7 @@ pipeline {
                     '''    
 
                     echo "Install New Ruby...${rubyVersion}..."
-                    // String ruby_version = "2.7.8"
+                    String rubyVersion = "${rubyVersion}"
                     mytool.InstallNewRuby(rubyVersion)
                 }
             }
