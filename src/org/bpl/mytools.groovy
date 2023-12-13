@@ -24,8 +24,12 @@ def InstallNewRuby(rubyVersion){
         source /var/lib/jenkins/.rvm/bin/rvm
       else 
         exit
-      fi    
+      fi
 
+      source /var/lib/jenkins/.bashrc
+      source /var/lib/jenkins/.bash_profile
+      source /var/lib/jenkins/.profile
+      
       echo "after sourcing rvm..."
       /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
       ## /var/lib/jenkins/.rvm/bin/rvm get stable
@@ -107,4 +111,28 @@ def RunRSpec(){
         ## bin/rails exec rspec
         rspec	
 	'''
+}
+
+def RunDeployment(){
+  println("RUN DB prepare and migrate ")
+  withEnv(["RAILS_ENV=${railsEnv}"]){
+    sh '''
+      #!/bin/bash -l
+     
+      echo "RAILS_ENV from Jenkinsfile is ${RAILS_ENV}"
+      echo "In  shared library,  db:prepare and db:migrate " 
+      if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
+         source /var/lib/jenkins/.rvm/bin/rvm
+      else 
+         exit
+      fi    
+      
+      ## RAILS_ENV=${RAILS_ENV} bundle exec rails db:prepare
+      ## RAILS_ENV=${RAILS_ENV} bundle exec rails db:migrate
+
+      bundle exec rails db:prepare
+      bundle exec rails db:migrate
+
+    '''
+  }
 }

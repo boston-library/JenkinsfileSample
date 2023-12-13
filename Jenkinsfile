@@ -92,6 +92,7 @@ pipeline {
             steps {
                 script {
                     echo "Deeploy Stage..."
+                    mytool.deploy()
                 }
             }
         }
