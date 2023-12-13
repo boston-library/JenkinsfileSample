@@ -20,16 +20,16 @@ def InstallNewRuby(rubyVersion){
       ## EXPECTED_RUBY=`cat .ruby-version`
       echo "ruby_version is ${RUBYVERSION}"
 
+      source /var/lib/jenkins/.bashrc
+      source /var/lib/jenkins/.bash_profile
+      source /var/lib/jenkins/.profile
+
       if [ -s /var/lib/jenkins/.rvm/bin/rvm ]; then 
         source /var/lib/jenkins/.rvm/bin/rvm
       else 
         exit
       fi
 
-      source /var/lib/jenkins/.bashrc
-      source /var/lib/jenkins/.bash_profile
-      source /var/lib/jenkins/.profile
-      
       echo "after sourcing rvm..."
       /var/lib/jenkins/.rvm/bin/rvm install ${RUBYVERSION}
       ## /var/lib/jenkins/.rvm/bin/rvm get stable
